@@ -19,7 +19,7 @@
 		settings.page = parseInt(settings.page);
 		
 		// Request URL
-		settings.url = "//api.dribbble.com/players/" + settings.player + "/shots?page=" + settings.page + "&per_page=" + settings.per_page;
+		settings.url = "//api.dribbble.com/players/" + settings.player + "/shots?page=" + settings.page + "&per_page=" + settings.per_page + "&callback=?";
 		
 		
 		
