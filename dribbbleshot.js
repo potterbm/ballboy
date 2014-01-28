@@ -29,6 +29,7 @@
 			var $container = $(this);
 			
 			var request = $.ajax({
+				crossDomain: true,
 				url: settings.url,
 				dataType: "jsonp"
 			});
