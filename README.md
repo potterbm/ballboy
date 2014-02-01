@@ -10,18 +10,18 @@ If you had a friend whose dribbble ID was 'exampleplayer' (which would be a dumb
 <div id="dribbble-shots"></div>
 ```
 
-... and this Javascript
+and this Javascript
 ```javascript
 $(document).ready(function(e) {
 	
 	$("#dribbble-shots").dribbbleshot({
-		player : exampleplayer
+		player : "exampleplayer"
 	});
 	
 });
 ```
 
-... to  get this HTML
+to  get this HTML
 ```html
 <div id="dribbble-shots" class="dribbbleshot-container">
 	<div class="dribbble-shot"> ... </div>
