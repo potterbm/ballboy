@@ -70,7 +70,7 @@
 						$container.find(".dribbbleshot-pagination").detach().appendTo($container);
 					}
 					else {
-						$container.append($.fn.dribbbleshot.pagination(response.pages));
+						$container.append($.fn.dribbbleshot.pagination(response.pages, response.page));
 					}
 					
 					$container.find(".dribbbleshot-pagination .disabled").removeClass("disabled");
@@ -90,6 +90,11 @@
 					
 					$container.find(".dribbbleshot-pagination-next:not(.disabled)").one("click", function(e) {
 						settings["page"] = parseInt(response.page) + 1;
+						$container.dribbbleshot(settings);
+					});
+					
+					$container.find(".dribbbleshot-pagination-page").one("click", function(e) {
+						settings["page"] = $(this).attr("data-page");
 						$container.dribbbleshot(settings);
 					});
 					
@@ -135,21 +140,30 @@
 	};
 	
 	
-	$.fn.dribbbleshot.pagination = function(pages) {
+	$.fn.dribbbleshot.pagination = function(pages, currentPage) {
 		var markup = '<div class="dribbbleshot-pagination">';
-		markup += '<div class="dribbbleshot-pagination-previous">' + $.fn.dribbbleshot.settings.paginationPreviousText + '</div>';
+		markup += '<a class="dribbbleshot-pagination-previous">' + $.fn.dribbbleshot.settings.paginationPreviousText + '</a>';
 		
+		var currentClass = '';
 		for(var p = 1; p <= pages; p++) {
-			markup += '<div class="dribbbleshot-pagination-page" data-page="' + p + '">';
+			
+			if(p == currentPage) {
+				currentClass = ' dribbbleshot-pagination-current';
+			}
+			else {
+				currentClass = '';
+			}
+			
+			markup += '<a class="dribbbleshot-pagination-page' + currentClass + '" data-page="' + p + '">';
 			
 			if($.fn.dribbbleshot.settings.showPaginationPages) {
 				markup += p;
 			}
 			
-			markup += '</div>';
+			markup += '</a>';
 		}
 		
-		markup += '<div class="dribbbleshot-pagination-next">' + $.fn.dribbbleshot.settings.paginationNextText + '</div>';
+		markup += '<a class="dribbbleshot-pagination-next">' + $.fn.dribbbleshot.settings.paginationNextText + '</a>';
 		markup += '</div>';
 		
 		return $.parseHTML(markup);
