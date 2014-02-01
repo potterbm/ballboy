@@ -64,17 +64,17 @@ $(document).ready(function(e) {
 
 There are several classes in use for pagination. Here are some useful ones, mostly in order.
 
-`.dribbbleshot-pagination` - This class is applied to a container element for all the pagination elements. The container element will also have a `data-current-page` attribute containing the number of the current page.
+* `.dribbbleshot-pagination` - This class is applied to a container element for all the pagination elements. The container element will also have a `data-current-page` attribute containing the number of the current page.
 
-`.dribbbleshot-pagination-previous` - This class is applied to the "previous page" element.
+* `.dribbbleshot-pagination-previous` - This class is applied to the "previous page" element.
 
-`.disabled` - This class is applied to the "previous page" element on the first page, and the "next page" element on the last page.
+* `.disabled` - This class is applied to the "previous page" element on the first page, and the "next page" element on the last page.
 
-`.dribbbleshot-pagination-page` - This class is applied to each page bubble, regardless of whether `showPaginationPages` is true or false. Each page bubble will also have a `data-page` attribute containing the number of the page it represents.
+* `.dribbbleshot-pagination-page` - This class is applied to each page bubble, regardless of whether `showPaginationPages` is true or false. Each page bubble will also have a `data-page` attribute containing the number of the page it represents.
 
-`.dribbbleshot-pagination-current` - This class is applied to only the page bubble that represents the current page.
+* `.dribbbleshot-pagination-current` - This class is applied to only the page bubble that represents the current page.
 
-`.dribbbleshot-pagination-next` - This class is applied to the "next page" element.
+* `.dribbbleshot-pagination-next` - This class is applied to the "next page" element.
 
 
 
