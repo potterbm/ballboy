@@ -77,13 +77,6 @@ There are several classes in use for pagination. Here are some useful ones, most
 * `.dribbbleshot-pagination-next` - This class is applied to the "next page" element.
 
 
+## Visual Styles
 
-
-
-
-
-
-
-
-
-
+An example CSS file is included with this plugin, but it is meant to be more of a guide of what could be possible than a production-ready stylesheet. That said, feel free to use it in any capacity that you wish.
