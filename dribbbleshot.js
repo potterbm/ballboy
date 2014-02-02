@@ -56,6 +56,10 @@
 						return false;
 					}
 					
+					$container.attr({
+						"data-page" : response.page,
+						"data-pages" : response.pages
+					});
 					
 					// Shots
 					
@@ -82,14 +86,14 @@
 					
 					if(parseInt(response.page) <= 1) {
 						response.page = 1;
-						$container.find(".dribbbleshot-pagination-next").addClass("disabled");
+						$container.find(".dribbbleshot-pagination-previous").addClass("disabled");
 					}
 					
 					
 					// Pagination events
 					
-					$container.find(".dribbbleshot-pagination-next:not(.disabled)").one("click", function(e) {
-						settings["page"] = parseInt(response.page) + 1;
+					$container.find(".dribbbleshot-pagination-previous:not(.disabled)").one("click", function(e) {
+						settings["page"] = parseInt(response.page) - 1;
 						$container.dribbbleshot(settings);
 					});
 					
@@ -98,10 +102,10 @@
 						$container.dribbbleshot(settings);
 					});
 					
-					$container.find(".dribbbleshot-pagination-previous:not(.disabled").one("click", function(e) {
-						settings["page"] = parseInt(response.page) - 1;
+					$container.find(".dribbbleshot-pagination-next:not(.disabled)").one("click", function(e) {
+						settings["page"] = parseInt(response.page) + 1;
 						$container.dribbbleshot(settings);
-					})
+					});
 				});
 			}
 			
