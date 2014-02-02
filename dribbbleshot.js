@@ -92,20 +92,22 @@
 					
 					// Pagination events
 					
-					$container.find(".dribbbleshot-pagination-previous:not(.disabled)").one("click", function(e) {
-						settings["page"] = parseInt(response.page) - 1;
-						$container.dribbbleshot(settings);
-					});
-					
-					$container.find(".dribbbleshot-pagination-page").one("click", function(e) {
-						settings["page"] = $(this).attr("data-page");
-						$container.dribbbleshot(settings);
-					});
-					
-					$container.find(".dribbbleshot-pagination-next:not(.disabled)").one("click", function(e) {
-						settings["page"] = parseInt(response.page) + 1;
-						$container.dribbbleshot(settings);
-					});
+					if(settings.bindPaginationEvents) {
+						$container.find(".dribbbleshot-pagination-previous:not(.disabled)").one("click", function(e) {
+							settings["page"] = parseInt(response.page) - 1;
+							$container.dribbbleshot(settings);
+						});
+						
+						$container.find(".dribbbleshot-pagination-page").one("click", function(e) {
+							settings["page"] = $(this).attr("data-page");
+							$container.dribbbleshot(settings);
+						});
+						
+						$container.find(".dribbbleshot-pagination-next:not(.disabled)").one("click", function(e) {
+							settings["page"] = parseInt(response.page) + 1;
+							$container.dribbbleshot(settings);
+						});
+					}
 				});
 			}
 			
@@ -179,6 +181,7 @@
 		page : 1,
 		per_page : 15,
 		shotClass : "dribbble-shot",
+		bindPaginationEvents : true,
 		showPaginationControls : true,
 		showPaginationPages : false,
 		paginationPreviousText : "Previous",
