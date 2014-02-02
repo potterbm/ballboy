@@ -141,7 +141,7 @@
 	
 	
 	$.fn.dribbbleshot.pagination = function(pages, currentPage) {
-		var markup = '<div class="dribbbleshot-pagination" data-current-page="' + currentPage + ">';
+		var markup = '<div class="dribbbleshot-pagination" data-current-page="' + currentPage + '">';
 		markup += '<a class="dribbbleshot-pagination-previous">' + $.fn.dribbbleshot.settings.paginationPreviousText + '</a>';
 		
 		var currentClass = '';
