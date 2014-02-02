@@ -7,6 +7,8 @@ A jQuery plugin to fetch a user's shots from Dribbble and display them.
 
 If you had a friend whose dribbble ID was 'exampleplayer' (which would be a dumb ID to have) and who had posted 20 shots, then you could use this HTML
 ```html
+<script src="/path/to/jquery/jquery.js"></script>
+<script src="/path/to/plugin/dribbbleshot.js"></script>
 <div id="dribbble-shots"></div>
 ```
 
