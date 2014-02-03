@@ -1,0 +1,37 @@
+body {
+	background-color: #eeeeee;
+	
+	font-family: 'Roboto', sans-serif;
+	font-size: 15px;
+	font-weight: 400;
+}
+
+#header-wrapper {
+	background-color: #333333;
+	color: #f8f8f8;
+}
+
+.container {
+	display: block;
+	width: 80%;
+	min-width: 400px;
+	max-width: 960px;
+}
+
+header h1 {
+	color: #f8f8f8;
+	
+	font-size: 6em;
+	font-weight: 100;
+	text-align: center;
+	
+	display: block;
+}
+
+header h2 {
+	color: #aaaaaa;
+	
+	font-size: 2em;
+	font-weight: 300;
+	text-align: center;
+}
