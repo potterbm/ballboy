@@ -1,9 +1,9 @@
-.dribbbleshot-container {
+.ballboy-container {
 	text-align: center;
 }
 
 /** shot styles **/
-.dribbble-shot {
+.ballboy-shot {
 	background-color: #ffffff;
 	border: 1px solid #cccccc;
 	border-radius: 5px;
@@ -19,15 +19,15 @@
 	position: relative;
 }
 
-.dribbble-shot-image {
+.ballboy-shot-image {
 	
 }
 
-.dribbble-shot-image img {
+.ballboy-shot-image img {
 	width: 100%;
 }
 
-.dribbble-shot-image-description {
+.ballboy-shot-image-description {
 	background-color: #ffffff;
 	opacity: 0;
 	
@@ -50,11 +50,11 @@
 	transition: opacity 0.2s ease-in-out;
 }
 
-.dribbble-shot-image-description:hover {
+.ballboy-shot-image-description:hover {
 	opacity: 1;
 }
 
-.dribbble-shot-image-description h3 {
+.ballboy-shot-image-description h3 {
 	color: #777777;
 	
 	font-size: 1em;
@@ -62,7 +62,7 @@
 	text-decoration: none;
 }
 
-.dribbble-shot-extras {
+.ballboy-shot-extras {
 	color: #777777;
 	
 	font-size: 12px;
@@ -79,30 +79,30 @@
 	right: 10px;
 }
 
-.dribbble-shot-rebound-marker {
+.ballboy-shot-rebound-marker {
 	position: absolute;
 	bottom: 0;
 	left: 0;
 }
 
-.dribbble-shot-view-count,
-.dribbble-shot-comment-count,
-.dribbble-shot-like-count
+.ballboy-shot-view-count,
+.ballboy-shot-comment-count,
+.ballboy-shot-like-count
 {
 	display: inline-block;
 	margin-left: 10px;
 	width: 40px;
 }
 
-.dribbble-shot-view-count:after {
+.ballboy-shot-view-count:after {
 	content: attr(data-view-count);
 }
 
-.dribbble-shot-comment-count:after {
+.ballboy-shot-comment-count:after {
 	content: attr(data-comment-count);
 }
 
-.dribbble-shot-like-count:after {
+.ballboy-shot-like-count:after {
 	content: attr(data-like-count);
 }
 /** end of shot styles **/
@@ -110,14 +110,14 @@
 
 
 /** pagination styles **/
-.dribbbleshot-pagination {
+.ballboy-pagination {
 	text-align: center;
 	
 	display: block;
 	margin: 2em 0;
 }
 
-.dribbbleshot-pagination-previous {
+.ballboy-pagination-previous {
 	background-color: #ffffff;
 	color: #999999;
 	
@@ -140,11 +140,11 @@
 	transition: color 0.15s ease-in-out;
 }
 
-.dribbbleshot-pagination-previous:hover {
+.ballboy-pagination-previous:hover {
 	color: #555555;
 }
 
-.dribbbleshot-pagination-page {
+.ballboy-pagination-page {
 	background-color: #ffffff;
 	border: 1px solid #eeeeee;
 	border-radius: 50%;
@@ -170,15 +170,15 @@
 	transition: color 0.15s ease-in-out;
 }
 
-.dribbbleshot-pagination-page:hover {
+.ballboy-pagination-page:hover {
 	color: #555555;
 }
 
-.dribbbleshot-pagination-current {
+.ballboy-pagination-current {
 	color: #555555;
 }
 
-.dribbbleshot-pagination-next {
+.ballboy-pagination-next {
 	background-color: #ffffff;
 	color: #999999;
 	
@@ -201,7 +201,7 @@
 	transition: color 0.15s ease-in-out;
 }
 
-.dribbbleshot-pagination-next:hover {
+.ballboy-pagination-next:hover {
 	color: #555555;
 }
 /** end of pagination styles **/

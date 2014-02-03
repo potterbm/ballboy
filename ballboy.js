@@ -1,10 +1,10 @@
 (function($) {
-	$.fn.dribbbleshot = function(options) {
+	$.fn.ballboy = function(options) {
 		
 		// Sanitize options
-		$.fn.dribbbleshot.settings = $.extend({}, $.fn.dribbbleshot.defaults, options);
+		$.fn.ballboy.settings = $.extend({}, $.fn.ballboy.defaults, options);
 		
-		var settings = $.fn.dribbbleshot.settings;
+		var settings = $.fn.ballboy.settings;
 		
 		// Player is required
 		if(!settings.player || (typeof(settings.player) != "string" && typeof(settings.player) != "number")) {
@@ -30,7 +30,7 @@
 			
 			var $container = $(this);
 			
-			$container.addClass("dribbbleshot-container");
+			$container.addClass("ballboy-container");
 			
 			var request = $.ajax({
 				crossDomain: true,
@@ -70,42 +70,42 @@
 					
 					// Pagination
 					
-					if($container.find(".dribbbleshot-pagination").length > 0) {
-						$container.find(".dribbbleshot-pagination").detach().appendTo($container);
+					if($container.find(".ballboy-pagination").length > 0) {
+						$container.find(".ballboy-pagination").detach().appendTo($container);
 					}
 					else {
-						$container.append($.fn.dribbbleshot.pagination(response.pages, response.page));
+						$container.append($.fn.ballboy.pagination(response.pages, response.page));
 					}
 					
-					$container.find(".dribbbleshot-pagination .disabled").removeClass("disabled");
+					$container.find(".ballboy-pagination .disabled").removeClass("disabled");
 					
 					if(parseInt(response.page) >= parseInt(response.pages)) {
 						response.page = response.pages;
-						$container.find(".dribbbleshot-pagination-next").addClass("disabled");
+						$container.find(".ballboy-pagination-next").addClass("disabled");
 					}
 					
 					if(parseInt(response.page) <= 1) {
 						response.page = 1;
-						$container.find(".dribbbleshot-pagination-previous").addClass("disabled");
+						$container.find(".ballboy-pagination-previous").addClass("disabled");
 					}
 					
 					
 					// Pagination events
 					
 					if(settings.bindPaginationEvents) {
-						$container.find(".dribbbleshot-pagination-previous:not(.disabled)").one("click", function(e) {
+						$container.find(".ballboy-pagination-previous:not(.disabled)").one("click", function(e) {
 							settings["page"] = parseInt(response.page) - 1;
-							$container.dribbbleshot(settings);
+							$container.ballboy(settings);
 						});
 						
-						$container.find(".dribbbleshot-pagination-page").one("click", function(e) {
+						$container.find(".ballboy-pagination-page").one("click", function(e) {
 							settings["page"] = $(this).attr("data-page");
-							$container.dribbbleshot(settings);
+							$container.ballboy(settings);
 						});
 						
-						$container.find(".dribbbleshot-pagination-next:not(.disabled)").one("click", function(e) {
+						$container.find(".ballboy-pagination-next:not(.disabled)").one("click", function(e) {
 							settings["page"] = parseInt(response.page) + 1;
-							$container.dribbbleshot(settings);
+							$container.ballboy(settings);
 						});
 					}
 				});
@@ -116,28 +116,28 @@
 	};
 	
 	
-	$.fn.dribbbleshot.format = function(shot) {
-		var markup = '<div class="' + $.fn.dribbbleshot.settings.shotClass + '" data-id="' + shot.id + '">';
+	$.fn.ballboy.format = function(shot) {
+		var markup = '<div class="' + $.fn.ballboy.settings.shotClass + '" data-id="' + shot.id + '">';
 		
 		// Shot image
-		markup += '<div class="dribbble-shot-image" data-src="' + shot.image_url + '" data-teaser-src="' + shot.image_teaser_url + '">';
+		markup += '<div class="ballboy-shot-image" data-src="' + shot.image_url + '" data-teaser-src="' + shot.image_teaser_url + '">';
 		markup += '<a href="' + shot.url + '"><img src="' + shot.image_teaser_url + '" /></a>';
 		
 		// Shot title
-		markup += '<a href="' + shot.url + '" class="dribbble-shot-image-description">';
+		markup += '<a href="' + shot.url + '" class="ballboy-shot-image-description">';
 		markup += '<h3>' + shot.title + '</h3>';
 		markup += '</a>';
 		
 		markup += '</div>';
 		
 		// Extra stats
-		markup += '<div class="dribbble-shot-extras">';
+		markup += '<div class="ballboy-shot-extras">';
 		if(parseInt(shot.rebounds_count) > 0) {
-			markup += '<span class="dribbble-shot-rebound-marker"></span>';
+			markup += '<span class="ballboy-shot-rebound-marker"></span>';
 		}
-		markup += '<span class="dribbble-shot-view-count" data-view-count="' + shot.views_count + '"></span>';
-		markup += '<span class="dribbble-shot-comment-count" data-comment-count="' + shot.comments_count + '"></span>';
-		markup += '<span class="dribbble-shot-like-count" data-like-count="' + shot.likes_count + '"></span>';
+		markup += '<span class="ballboy-shot-view-count" data-view-count="' + shot.views_count + '"></span>';
+		markup += '<span class="ballboy-shot-comment-count" data-comment-count="' + shot.comments_count + '"></span>';
+		markup += '<span class="ballboy-shot-like-count" data-like-count="' + shot.likes_count + '"></span>';
 		markup += '</div>';
 		
 		markup += '</div>';
@@ -146,41 +146,41 @@
 	};
 	
 	
-	$.fn.dribbbleshot.pagination = function(pages, currentPage) {
-		var markup = '<div class="dribbbleshot-pagination" data-current-page="' + currentPage + '">';
-		markup += '<a class="dribbbleshot-pagination-previous">' + $.fn.dribbbleshot.settings.paginationPreviousText + '</a>';
+	$.fn.ballboy.pagination = function(pages, currentPage) {
+		var markup = '<div class="ballboy-pagination" data-current-page="' + currentPage + '">';
+		markup += '<a class="ballboy-pagination-previous">' + $.fn.ballboy.settings.paginationPreviousText + '</a>';
 		
 		var currentClass = '';
 		for(var p = 1; p <= pages; p++) {
 			
 			if(p == currentPage) {
-				currentClass = ' dribbbleshot-pagination-current';
+				currentClass = ' ballboy-pagination-current';
 			}
 			else {
 				currentClass = '';
 			}
 			
-			markup += '<a class="dribbbleshot-pagination-page' + currentClass + '" data-page="' + p + '">';
+			markup += '<a class="ballboy-pagination-page' + currentClass + '" data-page="' + p + '">';
 			
-			if($.fn.dribbbleshot.settings.showPaginationPages) {
+			if($.fn.ballboy.settings.showPaginationPages) {
 				markup += p;
 			}
 			
 			markup += '</a>';
 		}
 		
-		markup += '<a class="dribbbleshot-pagination-next">' + $.fn.dribbbleshot.settings.paginationNextText + '</a>';
+		markup += '<a class="ballboy-pagination-next">' + $.fn.ballboy.settings.paginationNextText + '</a>';
 		markup += '</div>';
 		
 		return $.parseHTML(markup);
 	};
 	
 	
-	$.fn.dribbbleshot.defaults = {
-		format : $.fn.dribbbleshot.format,
+	$.fn.ballboy.defaults = {
+		format : $.fn.ballboy.format,
 		page : 1,
 		per_page : 15,
-		shotClass : "dribbble-shot",
+		shotClass : "ballboy-shot",
 		bindPaginationEvents : true,
 		showPaginationControls : true,
 		showPaginationPages : false,
