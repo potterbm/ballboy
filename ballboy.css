@@ -118,8 +118,8 @@
 }
 
 .ballboy-pagination-previous {
-	background-color: #ffffff;
-	color: #999999;
+	background-color: transparent;
+	color: #777777;
 	
 	cursor: pointer;
 	
@@ -145,14 +145,15 @@
 }
 
 .ballboy-pagination-page {
-	background-color: #ffffff;
-	border: 1px solid #eeeeee;
+	background-color: transparent;
+	border: 2px solid #999999;
 	border-radius: 50%;
 	color: #999999;
 	
 	cursor: pointer;
 	
 	font-size: 1em;
+	font-weight: 400;
 	line-height: 1.5;
 	text-align: center;
 	
@@ -163,15 +164,16 @@
 	width: 1.5em;
 	vertical-align: middle;
 	
-	-webkit-transition: color 0.15s ease-in-out;
-	-moz-transition: color 0.15s ease-in-out;
-	-ms-transition: color 0.15s ease-in-out;
-	-o-transition: color 0.15s ease-in-out;
-	transition: color 0.15s ease-in-out;
+	-webkit-transition: border-color 0.15s ease-in-out, color 0.15s ease-in-out;
+	-moz-transition: border-color 0.15s ease-in-out, color 0.15s ease-in-out;
+	-ms-transition: border-color 0.15s ease-in-out, color 0.15s ease-in-out;
+	-o-transition: border-color 0.15s ease-in-out, color 0.15s ease-in-out;
+	transition: border-color 0.15s ease-in-out, color 0.15s ease-in-out;
 }
 
 .ballboy-pagination-page:hover {
 	color: #555555;
+	border-color: #555555;
 }
 
 .ballboy-pagination-current {
@@ -179,8 +181,8 @@
 }
 
 .ballboy-pagination-next {
-	background-color: #ffffff;
-	color: #999999;
+	background-color: transparent;
+	color: #777777;
 	
 	cursor: pointer;
 	
