@@ -19,6 +19,10 @@ body {
 	max-width: 960px;
 }
 
+header {
+	overflow: hidden;
+}
+
 header h1 {
 	color: #f8f8f8;
 	
@@ -28,20 +32,21 @@ header h1 {
 	
 	display: block;
 	margin: 0;
+	margin-top: .5em;
 	padding: 0;
 }
 
 header h2 {
 	color: #aaaaaa;
 	
-	font-size: 1em;
-	font-weight: 300;
+	font-size: 1.5em;
+	font-weight: 100;
 	text-align: center;
 	font-style: italic;
 	
 	display: block;
 	margin: 0;
-	margin-bottom: 1em;
+	margin-bottom: 2em;
 }
 
 
@@ -49,13 +54,13 @@ header h2 {
 	font-size: 1rem;
 	
 	display: block;
-	margin: 0 auto;
+	margin: 2em auto;
 	padding: 0;
 	width: 960px;
 }
 
 .ballboy-player-form fieldset {
-	border: 1px solid rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(0, 0, 0, 0.1);
 	
 	text-align: center;
 	
@@ -65,8 +70,9 @@ header h2 {
 .ballboy-player-form input {
 	border: 4px solid rgba(0, 0, 0, 0.3);
 	border-radius: 5px;
-	background-color: rgba(255, 255, 255, 0.3);
+	background-color: #ffffff;
 	color: #555555;
+	outline: none;
 	
 	font-family: 'Roboto', sans-serif;
 	font-size: 1.5em;
@@ -88,7 +94,7 @@ header h2 {
 	
 	font-family: 'Roboto', sans-serif;
 	font-size: 1.5em;
-	font-weight: 100;
+	font-weight: 300;
 	text-align: center;
 	
 	display: inline-block;
