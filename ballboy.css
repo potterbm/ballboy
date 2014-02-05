@@ -1,0 +1,207 @@
+.ballboy-container {
+	text-align: center;
+}
+
+/** shot styles **/
+.ballboy-shot {
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+	
+	font-size: 15px;
+	
+	display: inline-block;
+	margin: 10px;
+	padding: 10px;
+	height: 190px;
+	width: 220px;
+	
+	position: relative;
+}
+
+.ballboy-shot-image {
+	
+}
+
+.ballboy-shot-image img {
+	width: 100%;
+}
+
+.ballboy-shot-image-description {
+	background-color: #ffffff;
+	opacity: 0;
+	
+	text-decoration: none;
+	
+	display: block;
+	padding: 10px;
+	height: 190px;
+	width: 220px;
+	
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	
+	-webkit-transition: opacity 0.2s ease-in-out;
+	-moz-transition: opacity 0.2s ease-in-out;
+	-ms-transition: opacity 0.2s ease-in-out;
+	-o-transition: opacity 0.2s ease-in-out;
+	transition: opacity 0.2s ease-in-out;
+}
+
+.ballboy-shot-image-description:hover {
+	opacity: 1;
+}
+
+.ballboy-shot-image-description h3 {
+	color: #777777;
+	
+	font-size: 1em;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.ballboy-shot-extras {
+	color: #777777;
+	
+	font-size: 12px;
+	font-weight: 400;
+	text-align: right;
+	
+	display: block;
+	margin: 0;
+	padding: 0;
+	
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	right: 10px;
+}
+
+.ballboy-shot-rebound-marker {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.ballboy-shot-view-count,
+.ballboy-shot-comment-count,
+.ballboy-shot-like-count
+{
+	display: inline-block;
+	margin-left: 10px;
+	width: 40px;
+}
+
+.ballboy-shot-view-count:after {
+	content: attr(data-view-count);
+}
+
+.ballboy-shot-comment-count:after {
+	content: attr(data-comment-count);
+}
+
+.ballboy-shot-like-count:after {
+	content: attr(data-like-count);
+}
+/** end of shot styles **/
+
+
+
+/** pagination styles **/
+.ballboy-pagination {
+	text-align: center;
+	
+	display: block;
+	margin: 2em 0;
+}
+
+.ballboy-pagination-previous {
+	background-color: #ffffff;
+	color: #999999;
+	
+	cursor: pointer;
+	
+	font-size: 1.2em;
+	font-weight: 400;
+	text-decoration: none;
+	
+	display: inline-block;
+	margin: 0;
+	margin-right: 1em;
+	padding: .25em .5em;
+	vertical-align: middle;
+	
+	-webkit-transition: color 0.15s ease-in-out;
+	-moz-transition: color 0.15s ease-in-out;
+	-ms-transition: color 0.15s ease-in-out;
+	-o-transition: color 0.15s ease-in-out;
+	transition: color 0.15s ease-in-out;
+}
+
+.ballboy-pagination-previous:hover {
+	color: #555555;
+}
+
+.ballboy-pagination-page {
+	background-color: #ffffff;
+	border: 1px solid #eeeeee;
+	border-radius: 50%;
+	color: #999999;
+	
+	cursor: pointer;
+	
+	font-size: 1em;
+	line-height: 1.5;
+	text-align: center;
+	
+	display: inline-block;
+	margin: 0 .5em;
+	padding: .25em;
+	height: 1.5em;
+	width: 1.5em;
+	vertical-align: middle;
+	
+	-webkit-transition: color 0.15s ease-in-out;
+	-moz-transition: color 0.15s ease-in-out;
+	-ms-transition: color 0.15s ease-in-out;
+	-o-transition: color 0.15s ease-in-out;
+	transition: color 0.15s ease-in-out;
+}
+
+.ballboy-pagination-page:hover {
+	color: #555555;
+}
+
+.ballboy-pagination-current {
+	color: #555555;
+}
+
+.ballboy-pagination-next {
+	background-color: #ffffff;
+	color: #999999;
+	
+	cursor: pointer;
+	
+	font-size: 1.2em;
+	font-weight: 400;
+	text-decoration: none;
+	
+	display: inline-block;
+	margin: 0;
+	margin-left: 1em;
+	padding: .25em .5em;
+	vertical-align: middle;
+	
+	-webkit-transition: color 0.15s ease-in-out;
+	-moz-transition: color 0.15s ease-in-out;
+	-ms-transition: color 0.15s ease-in-out;
+	-o-transition: color 0.15s ease-in-out;
+	transition: color 0.15s ease-in-out;
+}
+
+.ballboy-pagination-next:hover {
+	color: #555555;
+}
+/** end of pagination styles **/

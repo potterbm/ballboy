@@ -10,19 +10,28 @@
 	<link rel="stylesheet" type="text/css" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto" />
 	<link rel="stylesheet" type="text/css" href="/ballboy/ballboy-page.css" />
-	<link rel="stylesheet" type="text/css" href="https://raw.github.com/potterbm/ballboy/master/ballboy.css" />
+	<link rel="stylesheet" type="text/css" href="/ballboy/ballboy.css" />
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-	<Script src="https://raw.github.com/potterbm/ballboy/master/ballboy.js"></script>
+	<Script src="/ballboy/ballboy.js"></script>
 	
 	<script type="text/javascript">
 		
 		$(document).ready(function(e) {
 			
-			$("#shots").ballboy({
-				player : "dribbble"
+			$(".ballboy-player-form button").click(function(e) {
+				e.preventDefault();
+				
+				var player = $(".ballboy-player-form input").val();
+				
+				if(!player) {
+					// Display a snarky message
+				}
+				
+				$("#shots").ballboy({
+					player : player
+				});
 			});
-			
 		});
 		
 	</script>

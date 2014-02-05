@@ -79,6 +79,8 @@ header h2 {
 	background-color: #ea4c89;
 	color: #ffffff;
 	
+	cursor: pointer;
+	
 	font-family: 'Roboto', sans-serif;
 	font-size: 1.5em;
 	font-weight: 100;
@@ -90,4 +92,8 @@ header h2 {
 	height: 2em;
 	width: 200px;
 	vertical-align: middle;
+}
+
+.ballboy-player-form button:hover {
+	background-color: #C54073;
 }
