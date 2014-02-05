@@ -34,9 +34,14 @@ header h1 {
 header h2 {
 	color: #aaaaaa;
 	
-	font-size: 2em;
+	font-size: 1em;
 	font-weight: 300;
 	text-align: center;
+	font-style: italic;
+	
+	display: block;
+	margin: 0;
+	margin-bottom: 1em;
 }
 
 
