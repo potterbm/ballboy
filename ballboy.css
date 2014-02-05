@@ -146,7 +146,7 @@
 
 .ballboy-pagination-page {
 	background-color: transparent;
-	border: 2px solid #999999;
+	border: 2px solid #aaaaaa;
 	border-radius: 50%;
 	color: #999999;
 	
@@ -171,13 +171,11 @@
 	transition: border-color 0.15s ease-in-out, color 0.15s ease-in-out;
 }
 
-.ballboy-pagination-page:hover {
+.ballboy-pagination-current,
+.ballboy-pagination-page:hover
+{
 	color: #555555;
-	border-color: #555555;
-}
-
-.ballboy-pagination-current {
-	color: #555555;
+	border-color: #777777;
 }
 
 .ballboy-pagination-next {
