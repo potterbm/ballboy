@@ -45,7 +45,7 @@ to  get this HTML
 
 ### Options
 
-* `format(shot)` - This function is passed (an object)[http://dribbble.com/api#get_player_shots] containing data about a single shot. It returns a DOM element representing that shot.
+* `format(shot)` - This function is passed [an object](http://dribbble.com/api#get_player_shots) containing data about a single shot. It returns a DOM element representing that shot.
 
 * `page` - The desired page of results. The results are returned by the Dribbble API in the reverse order they were posted (newest first). Combined with `per_page` this determines the offset of results. Default of `1`.
 
@@ -60,6 +60,21 @@ to  get this HTML
 * `paginationPreviousText` - A string that will be used as the text of the previous page element. Default of `Previous`.
 
 * `paginationNextText` - A string that will be used as the text of the next page element. Default of `Next`.
+
+
+### Event Handlers
+
+Behind the scenes ballboy.js used a jQuery Deferred object to access the Dribbble API. This means that any callback function you provide as one of the following options can expect to be passed the information given out by the Deferred object.
+
+* `begin` - This option takes a function that executes just before ballboy.js makes the call to the Dribbble API. The function is passed a jQuery collection with only the container element.
+
+* `always` - This option takes a function which executes when the Deferred object resolves, whether or not the API call succeeds or fails.
+
+* `fail` - This option takes a function which executes if the API call fails. This would be a great place to put some sort of error handling, as ballboy.js does not do any for you.
+
+* `done` - This option takes a function which executes if the API call succeeds. The provided function (if any) will be executed before ballboy.js does its thing with the data returned.
+
+* `finished` - This option takes a function which will be executed if the API call succeeds and after ballboy.js marks up the page. This function is passed [an object](http://dribbble.com/api#get_player_shots) which is the response received from the Dribbble API.
 
 
 ## Pagination
