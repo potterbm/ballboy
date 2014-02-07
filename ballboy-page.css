@@ -69,7 +69,7 @@ header h2 {
 }
 
 .ballboy-player-form input {
-	border: 4px solid rgba(0, 0, 0, 0.3);
+	border: 2px solid rgba(0, 0, 0, 0.3);
 	border-radius: 5px;
 	background-color: #ffffff;
 	color: #555555;
@@ -81,23 +81,24 @@ header h2 {
 	
 	display: inline-block;
 	margin-right: 1em;
+	padding: .15em .5em;
 	height: 1.6em;
 	width: 300px;
 	vertical-align: middle;
 }
 
 .ballboy-player-form button {
-	border: none;
 	border-radius: 5px;
-	background-color: #ea4c89;
-	color: #ffffff;
+	border: 2px solid #ea4c89;
+	background-color: transparent;
+	color: #ea4c89;
 	
 	cursor: pointer;
 	outline: none;
 	
 	font-family: 'Roboto', sans-serif;
 	font-size: 1.5em;
-	font-weight: 300;
+	font-weight: 600;
 	text-align: center;
 	
 	display: inline-block;
@@ -106,8 +107,85 @@ header h2 {
 	height: 2em;
 	width: 200px;
 	vertical-align: middle;
+	overflow: hidden;
+	
+	position: relative;
+	
+	-webkit-transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+	-moz-transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+	-ms-transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+	-o-transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+	transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
 }
 
 .ballboy-player-form button:hover {
-	background-color: #C54073;
+	border-color: #C54073;
+	color: #C54073;
+}
+
+.ballboy-player-form button:before {
+	background-color: rgba(0, 0, 0, 0.3);
+	
+	content: "";
+	
+	display: block;
+	height: 100%;
+	width: 100%;
+	
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	
+	-webkit-transform: translateX(-100%);
+	-moz-transform: translateX(-100%);
+	-ms-transform: translateX(-100%);
+	-o-transform: translateX(-100%);
+	transform: translateX(-100%);
+	
+	-webkit-transition: -webkit-transform 0.2s ease-out;
+	-moz-transition: -moz-transform 0.2s ease-out;
+	-ms-transition: -ms-transform 0.2s ease-out;
+	-o-transition: -o-transform 0.2s ease-out;
+	transition: transform 0.2s ease-out;
+}
+
+.ballboy-player-form button:hover:before {
+	-webkit-transform: translateX(-95%);
+	-moz-transform: translateX(-95%);
+	-ms-transform: translateX(-95%);
+	-o-transform: translateX(-95%);
+	transform: translateX(-95%);
+}
+
+.ballboy-player-form button.working:before {
+	-webkit-transform: translateX(-25%);
+	-moz-transform: translateX(-25%);
+	-ms-transform: translateX(-25%);
+	-o-transform: translateX(-25%);
+	transform: translateX(-25%);
+	
+	-webkit-transition: -webkit-transform 1.5s linear;
+	-moz-transition: -moz-transform 1.5s linear;
+	-ms-transition: -ms-transform 1.5s linear;
+	-o-transition: -o-transform 1.5s linear;
+	transition: transform 1.5s linear;
+}
+
+.ballboy-player-form button.finished:before {
+	-webkit-transform: translateX(0);
+	-moz-transform: translateX(0);
+	-ms-transform: translateX(0);
+	-o-transform: translateX(0);
+	transform: translateX(0);
+	
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	-ms-transition-duration: 0.3s;
+	-o-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+}
+
+.ballboy-container {
+	padding: 0 2em;
 }
