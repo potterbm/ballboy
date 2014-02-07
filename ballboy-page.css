@@ -110,16 +110,6 @@ header h2 {
 	overflow: hidden;
 	
 	position: relative;
-	
-	-webkit-transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
-	-moz-transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
-	-ms-transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
-	-o-transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
-	transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
-}
-
-.ballboy-player-form button:hover {
-	background-color: #C54073;
 }
 
 .ballboy-player-form button:before {
