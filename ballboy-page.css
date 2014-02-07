@@ -89,16 +89,16 @@ header h2 {
 
 .ballboy-player-form button {
 	border-radius: 5px;
-	border: 2px solid #ea4c89;
-	background-color: transparent;
-	color: #ea4c89;
+	border: none;
+	background-color: #ea4c89;
+	color: #ffffff;
 	
 	cursor: pointer;
 	outline: none;
 	
 	font-family: 'Roboto', sans-serif;
 	font-size: 1.5em;
-	font-weight: 600;
+	font-weight: 400;
 	text-align: center;
 	
 	display: inline-block;
@@ -119,12 +119,11 @@ header h2 {
 }
 
 .ballboy-player-form button:hover {
-	border-color: #C54073;
-	color: #C54073;
+	background-color: #C54073;
 }
 
 .ballboy-player-form button:before {
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: rgba(0, 0, 0, 0.2);
 	
 	content: "";
 	
