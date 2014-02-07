@@ -21,16 +21,18 @@
 		settings.page = parseInt(settings.page);
 		
 		// Request URL
-		settings.url = "//api.dribbble.com/players/" + settings.player + "/shots?page=" + settings.page + "&per_page=" + settings.per_page + "&callback=?";
+		settings.url = "http://api.dribbble.com/players/" + settings.player + "/shots?page=" + settings.page + "&per_page=" + settings.per_page + "&callback=?";
 		
 		
 		
 		// Allow chaining
 		return this.each(function() {
 			
-			var $container = $(this);
+			var $container = $(this).addClass("ballboy-container");
 			
-			$container.addClass("ballboy-container");
+			if(typeof(settings.begin) == "function") {
+				settings.begin($container);
+			}
 			
 			var request = $.ajax({
 				crossDomain: true,
@@ -49,76 +51,84 @@
 			if(typeof(settings.done) == "function") {
 				request.done(settings.done);
 			}
-			else {
-				request.done(function(response, textStatus, jqxhr) {
-					
-					if(jqxhr.status != 200) {
-						return false;
-					}
-					
-					$container.attr({
-						"data-page" : response.page,
-						"data-pages" : response.pages
-					});
-					
-					// Shots
-					
-					$.each(response.shots, function(index, element) {
-						$container.append(settings.format(element));
-					});
-					
-					
-					// Pagination
-					
-					if($container.find(".ballboy-pagination").length > 0) {
-						$container.find(".ballboy-pagination").detach().appendTo($container);
-					}
-					else {
-						$container.append($.fn.ballboy.pagination(response.pages, response.page));
-					}
-					
-					$container.find(".ballboy-pagination .disabled").removeClass("disabled");
-					
-					if(parseInt(response.page) >= parseInt(response.pages)) {
-						response.page = response.pages;
-						$container.find(".ballboy-pagination-next").addClass("disabled");
-					}
-					
-					if(parseInt(response.page) <= 1) {
-						response.page = 1;
-						$container.find(".ballboy-pagination-previous").addClass("disabled");
-					}
-					
-					
-					// Pagination events
-					
-					if(settings.bindPaginationEvents) {
-						$container.find(".ballboy-pagination-previous:not(.disabled)").one("click", function(e) {
-							settings["page"] = parseInt(response.page) - 1;
-							$container.ballboy(settings);
-						});
-						
-						$container.find(".ballboy-pagination-page").one("click", function(e) {
-							settings["page"] = $(this).attr("data-page");
-							$container.ballboy(settings);
-						});
-						
-						$container.find(".ballboy-pagination-next:not(.disabled)").one("click", function(e) {
-							settings["page"] = parseInt(response.page) + 1;
-							$container.ballboy(settings);
-						});
-					}
-				});
-			}
 			
+			request.done(function(response, textStatus, jqxhr) {
+				
+				if(jqxhr.status != 200) {
+					return false;
+				}
+				
+				$container.attr({
+					"data-page" : response.page,
+					"data-pages" : response.pages
+				});
+				
+				
+				// Pagination
+				
+				if($container.find(".ballboy-pagination").length > 0) {
+					var $pagination = $container.find(".ballboy-pagination").detach();
+				}
+				else {
+					var $pagination = $.fn.ballboy.pagination(response.pages, response.page);
+				}
+				
+				$container.find(".ballboy-pagination .disabled").removeClass("disabled");
+				
+				if(parseInt(response.page) >= parseInt(response.pages)) {
+					response.page = response.pages;
+					$container.find(".ballboy-pagination-next").addClass("disabled");
+				}
+				
+				if(parseInt(response.page) <= 1) {
+					response.page = 1;
+					$container.find(".ballboy-pagination-previous").addClass("disabled");
+				}
+				
+				
+				
+				// Shots
+				
+				$container.empty();
+				$.each(response.shots, function(index, element) {
+					$container.append(settings.format(element));
+				});
+				$container.append($pagination);
+				
+				
+				
+				// Pagination events
+				
+				if(settings.bindPaginationEvents) {
+					$container.find(".ballboy-pagination-previous:not(.disabled)").one("click", function(e) {
+						settings["page"] = parseInt(response.page) - 1;
+						$container.ballboy(settings);
+					});
+					
+					$container.find(".ballboy-pagination-page").one("click", function(e) {
+						settings["page"] = $(this).attr("data-page");
+						$container.ballboy(settings);
+					});
+					
+					$container.find(".ballboy-pagination-next:not(.disabled)").one("click", function(e) {
+						settings["page"] = parseInt(response.page) + 1;
+						$container.ballboy(settings);
+					});
+				}
+				
+				if(typeof(settings.finished) == "function") {
+					settings.finished(response);
+				}
+			});
+
 		});
-		
+
 	};
-	
-	
+
+
 	$.fn.ballboy.format = function(shot) {
 		var markup = '<div class="' + $.fn.ballboy.settings.shotClass + '" data-id="' + shot.id + '">';
-		
+	
 		// Shot image
 		markup += '<div class="ballboy-shot-image" data-src="' + shot.image_url + '" data-teaser-src="' + shot.image_teaser_url + '">';
 		markup += '<a href="' + shot.url + '"><img src="' + shot.image_teaser_url + '" /></a>';
