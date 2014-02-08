@@ -192,12 +192,18 @@ header .download-link:hover {
 
 .ballboy-player-form button {
 	border-radius: 5px;
+<<<<<<< HEAD
 	border-top-left-radius: 0px;
 	border-bottom-left-radius: 0px;
 	border: 1px solid #cccccc;
 	border-left: none;
 	background-color: #ea4c89;
 	color: #f8f8f8;
+=======
+	border: none;
+	background-color: #ea4c89;
+	color: #ffffff;
+>>>>>>> a9cf3e44fe5c3c44a90c8108bcdf07e9173f5edd
 	
 	cursor: pointer;
 	outline: none;
@@ -293,11 +299,11 @@ header .download-link:hover {
 	-o-transform: translateX(-100%);
 	transform: translateX(-100%);
 	
-	-webkit-transition: -webkit-transform 0s linear 0.35s, opacity 0.35s ease-in-out;
-	-moz-transition: -moz-transform 0s linear 0.35s, opacity 0.35s ease-in-out;
-	-ms-transition: -ms-transform 0s linear 0.35s, opacity 0.35s ease-in-out;
-	-o-transition: -o-transform 0s linear 0.35s, opacity 0.35s ease-in-out;
-	transition: transform 0s linear 0.35s, opacity 0.35s ease-in-out;
+	-webkit-transition: opacity 0.25s ease-in-out;
+	-moz-transition: opacity 0.25s ease-in-out;
+	-ms-transition: opacity 0.25s ease-in-out;
+	-o-transition: opacity 0.25s ease-in-out;
+	transition: opacity 0.25s ease-in-out;
 }
 
 .ballboy-container {
