@@ -16,17 +16,21 @@
 	<Script src="/ballboy/ballboy.js"></script>
 	
 	<script type="text/javascript">
+	
+	$(document).ready(function(e) {
 		
-		$(document).ready(function(e) {
+		$(".dialog-container").click(function(e) {
+			$(this).fadeOut(250);
+		});
+		
+		$(".ballboy-player-form button").click(function(e) {
+			e.preventDefault();
 			
-			$(".ballboy-player-form button").click(function(e) {
-				e.preventDefault();
-				
-				var player = $(".ballboy-player-form input").val();
-				
-				if(!player) {
-					// Display a snarky message
-					
+			var player = $(".ballboy-player-form input").val();
+			
+			if(!player) {
+					// Display an error message
+					$("#player-name-dialog").fadeIn(250).delay(1500).fadeOut(250);
 				}
 				
 				$("#shots").ballboy({
@@ -38,30 +42,38 @@
 						$(".ballboy-player-form input").val("");
 						
 						window.setTimeout(function() {
-							$(".ballboy-player-form button").removeClass("working finished");
-						}, 1500);
+							
+							$(".ballboy-player-form button").addClass("hide");
+							
+							window.setTimeout(function() {
+								$(".ballboy-player-form button").removeClass("working finished hide");
+							}, 350);
+							
+						}, 1000);
 					},
 					showPaginationPages : true,
 					player : player
 				});
 			});
-		});
-		
+	});
+	
 	</script>
 	
-   
+	
 </head>
 
 <body>
 	<div id="header-wrapper">
 		<header>
-			<h1>ballboy.js</h1>
+			<h1><a href="https://github.com/potterbm/ballboy">ballboy.js</a></h1>
 			<h2>Fetches shots after you make them</h2>
+			
+			<a href="https://github.com/potterbm/ballboy/releases" class="download-link">Get it</a>
 		</header>
 	</div>
 	
 	<form class="ballboy-player-form" action="">
-		<fieldset><input type="text"><button>See the shots!</button></fieldset>
+		<fieldset><input type="text" placeholder="Player name"><button>See the shots!</button></fieldset>
 	</form>
 	
 	<div id="shots"></div>
@@ -71,6 +83,13 @@
 		<footer>
 			
 		</footer>
+	</div>
+	
+	<div id="player-name-dialog" class="dialog-container">
+		<div class="dialog">
+			<h2>That isn't a player name</h2>
+			<p>That's just blank space. Get your head in the game, champ!</p>
+		</div>
 	</div>
 	
 </body>
