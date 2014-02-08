@@ -129,7 +129,7 @@
 	cursor: pointer;
 	
 	font-size: 1.2em;
-	font-weight: 400;
+	font-weight: 300;
 	text-decoration: none;
 	
 	display: inline-block;
@@ -150,9 +150,9 @@
 }
 
 .ballboy-pagination-page {
-	border: 1px solid #aaaaaa;
+	border: 1px solid #cccccc;
 	border-radius: 50%;
-	color: #999999;
+	color: #aaaaaa;
 	
 	cursor: pointer;
 	
@@ -180,7 +180,8 @@
 }
 
 .ballboy-pagination-current {
-	color: #555555;
+	border-color: #777777;
+	color: #333333;
 }
 
 .ballboy-pagination-next {
@@ -189,7 +190,7 @@
 	cursor: pointer;
 	
 	font-size: 1.2em;
-	font-weight: 400;
+	font-weight: 300;
 	text-decoration: none;
 	
 	display: inline-block;
