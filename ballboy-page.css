@@ -192,18 +192,12 @@ header .download-link:hover {
 
 .ballboy-player-form button {
 	border-radius: 5px;
-<<<<<<< HEAD
 	border-top-left-radius: 0px;
 	border-bottom-left-radius: 0px;
 	border: 1px solid #cccccc;
 	border-left: none;
 	background-color: #ea4c89;
-	color: #f8f8f8;
-=======
-	border: none;
-	background-color: #ea4c89;
 	color: #ffffff;
->>>>>>> a9cf3e44fe5c3c44a90c8108bcdf07e9173f5edd
 	
 	cursor: pointer;
 	outline: none;
