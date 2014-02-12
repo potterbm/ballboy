@@ -66,12 +66,8 @@
 				
 				// Pagination
 				
-				if($container.find(".ballboy-pagination").length > 0) {
-					var $pagination = $container.find(".ballboy-pagination").detach();
-				}
-				else {
-					var $pagination = $.fn.ballboy.pagination(response.pages, response.page);
-				}
+				$container.find(".ballboy-pagination").remove();
+				$container.append($.fn.ballboy.pagination(response.pages, response.page));
 				
 				$container.find(".ballboy-pagination .disabled").removeClass("disabled");
 				
