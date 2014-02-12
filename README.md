@@ -45,11 +45,15 @@ to  get this HTML
 
 ### Options
 
+* `favorites` - Set to true, this option will make ballboy.js return the shots that `player` liked, instead of the shots `player` uploaded. Defaults to `false`.
+
 * `format(shot)` - This function is passed [an object](http://dribbble.com/api#get_player_shots) containing data about a single shot. It returns a DOM element representing that shot.
 
 * `page` - The desired page of results. The results are returned by the Dribbble API in the reverse order they were posted (newest first). Combined with `per_page` this determines the offset of results. Default of `1`.
 
 * `per_page` - The number of results to show on each page. This cannot be more than 30 (a constraint of the Dribbble API). Default of `15`.
+
+* `retina` - If this is true ballboy will use the larger image in the markup it returns. Both image URLs will still be returned as attributes on the image container element. Defaults to `false`.
 
 * `shotClass` - A class to apply to each shot on the page. Default of `ballboy-shot`.
 
@@ -79,7 +83,7 @@ Behind the scenes ballboy.js used a jQuery Deferred object to access the Dribbbl
 
 ## Pagination
 
-There are several classes in use for pagination. Here are some useful ones, mostly in order.
+There are several classes in use for pagination. Here are some useful ones, mostly in order of appearance.
 
 * `.ballboy-pagination` - This class is applied to a container element for all the pagination elements. The container element will also have a `data-current-page` attribute containing the number of the current page.
 

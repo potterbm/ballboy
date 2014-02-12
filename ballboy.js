@@ -21,7 +21,13 @@
 		settings.page = parseInt(settings.page);
 		
 		// Request URL
-		settings.url = "http://api.dribbble.com/players/" + settings.player + "/shots?page=" + settings.page + "&per_page=" + settings.per_page + "&callback=?";
+		if(settings.favorites) {
+			var favoritesUrl = '/likes';
+		}
+		else {
+			var favoritesUrl = '';
+		}
+		settings.url = "http://api.dribbble.com/players/" + settings.player + "/shots" + favoritesUrl + "?page=" + settings.page + "&per_page=" + settings.per_page + "&callback=?";
 		
 		
 		
@@ -54,7 +60,8 @@
 			
 			request.done(function(response, textStatus, jqxhr) {
 				
-				if(jqxhr.status != 200) {
+				if(jqxhr.status != 200 || (response.message && response.message[0] == 404)) {
+					settings.fail(response);
 					return false;
 				}
 				
@@ -127,7 +134,14 @@
 	
 		// Shot image
 		markup += '<div class="ballboy-shot-image" data-src="' + shot.image_url + '" data-teaser-src="' + shot.image_teaser_url + '">';
-		markup += '<a href="' + shot.url + '"><img src="' + shot.image_teaser_url + '" /></a>';
+		markup += '<a href="' + shot.url + '">';
+		if($.fn.ballboy.settings.retina) {
+			markup += '<img src="' + shot.image_url + '" />';
+		}
+		else {
+			markup += '<img src="' + shot.image_teaser_url + '" />';
+		}
+		markup += '</a>';
 		
 		// Shot title
 		markup += '<a href="' + shot.url + '" class="ballboy-shot-image-description">';
@@ -184,8 +198,10 @@
 	
 	$.fn.ballboy.defaults = {
 		format : $.fn.ballboy.format,
+		favorites : false,
 		page : 1,
 		per_page : 15,
+		retina : false,
 		shotClass : "ballboy-shot",
 		bindPaginationEvents : true,
 		showPaginationControls : true,
