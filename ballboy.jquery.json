@@ -1,0 +1,31 @@
+{
+	"name" : "ballboy",
+	"version" : "1.2.0",
+	"title" : "ballboy.js",
+	"author" : {
+		"name" : "Bryan Potter",
+		"email" : "potterbm@gmail.com",
+		"url" : "http://potterbm.com"
+	},
+	"licenses" : [
+		{
+			"type" : "MIT",
+			"url" : "http://opensource.org/licenses/MIT"
+		}
+	],
+	"dependencies" : {
+		"jquery" : ">2.0.0"
+	},
+	"description" : "Fetches a user's shots from Dribbble and displays them.",
+	"keywords" : [ "design", "dribbble", "social" ],
+	"homepage" : "http://potterbm.github.io/ballboy/",
+	"docs" : "http://github.com/potterbm/ballboy/",
+	"demo" : "http://potterbm.github.io/ballboy/",
+	"maintainers" : [
+		{
+			"name" : "Bryan Potter",
+			"email" : "potterbm@gmail.com",
+			"url" : "http://potterbm.com"
+		}
+	]
+}

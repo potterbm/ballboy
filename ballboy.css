@@ -100,36 +100,12 @@
 	width: 40px;
 }
 
-.ballboy-shot-view-count:before {
-	content: "\f06e";
-	font-family: FontAwesome;
-	
-	display: inline-block;
-	margin-right: .5em;
-}
-
 .ballboy-shot-view-count:after {
 	content: attr(data-view-count);
 }
 
-.ballboy-shot-comment-count:before {
-	content: "\f075";
-	font-family: FontAwesome;
-	
-	display: inline-block;
-	margin-right: .5em;
-}
-
 .ballboy-shot-comment-count:after {
 	content: attr(data-comment-count);
-}
-
-.ballboy-shot-like-count:before {
-	content: "\f004";
-	font-family: FontAwesome;
-	
-	display: inline-block;
-	margin-right: .5em;
 }
 
 .ballboy-shot-like-count:after {
